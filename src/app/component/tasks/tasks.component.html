@@ -1,0 +1,105 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+
+.btn{
+    background-color: #003D79
+  }
+  .btn:hover {
+    background-color: #4c77a1  !important;
+  }
+
+  div.nocarga {
+    align-content: center;
+  }
+
+  li.alumno{
+    margin-left: 20px;
+    word-spacing: 40px;
+  }
+
+  hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+   }
+  
+  p {
+    display:inline;
+    
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  th{
+    background-color: #003D79;
+    color: white;
+    border-right: 1px solid #003D79;
+  }
+  
+  td {
+    border-right: 1px solid #003D79;
+    border-left: 1px solid #003D79;
+    width: 50%;
+}
+
+td.ultimo {
+  border-bottom: 1px solid #003D79;
+}
+
+</style>
+<div *ngIf="tasks?.length > 0;else noTasks">
+  <h3>Lista de participantes</h3>  <h5 style="display:inline;">Doble click para borrar algún registro incorrecto</h5>
+  
+    <ul *ngFor="let task of tasks" class="collection">
+      <div class="collection-item" (dblclick)="deleteTask($event, task)">
+
+      <strong>Equipo:</strong> {{task.equipo}} <strong style="float:right">Grupo: <p>{{task.grupo}}</p></strong> 
+      <hr>
+      
+      
+      <table>
+
+          <tbody>
+              <tr>
+                  <th>
+                    <strong >Integrantes:</strong>
+                  </th>
+
+                  <th>
+                      <strong >Números de Cuenta:</strong>
+                  </th>
+                 
+                </tr>
+
+            <tr>
+              <td >1.- {{task.nombre1}}</td>
+              <td >{{task.numerocuenta1}}</td>
+            </tr>
+            <tr>
+              <td>2.- {{task.nombre2}}</td>
+              <td>{{task.numerocuenta2}}</td>
+            </tr>
+            <tr>
+                <td class="ultimo">3.- {{task.nombre3}}</td>
+                <td class="ultimo">{{task.numerocuenta3}}</td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </ul>
+    
+  </div>  
+  
+  <ng-template #noTasks>
+    <div class="no_carga">
+    <h5>No hay alumnos registrados aún.</h5>
+      <h6>(En ocasiones no cargan los alumnos, dar en recargar.)</h6>
+
+      <button style="display:inline;" (click)="refresh()" class="btn"><i class="fa fa-refresh"> Recargar</i></button>
+    </div>
+  </ng-template>
+  

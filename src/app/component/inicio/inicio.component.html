@@ -1,0 +1,135 @@
+﻿<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+        
+        /* Create two unequal columns that floats next to each other */
+        /* Left column */
+        .leftcolumn {   
+            float: left;
+            width: 75%;
+        }
+        
+        /* Right column */
+        .rightcolumn {
+            float: left;
+            width: 25%;
+            background-color: #f1f1f1;
+            padding-left: 20px;
+        }
+        
+        /* Fake image */
+        .fakeimg {
+            background-color: #aaa;
+            width: 100%;
+            padding: 20px;
+        }
+        
+        /* Add a card effect for articles */
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        
+        .img {
+            display: block;
+        }
+        /* Footer */
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: #ddd;
+            margin-top: 20px;
+        }
+        
+        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+        @media (max-width: 800px) {
+            .leftcolumn, .rightcolumn {   
+                width: 100%;
+                padding: 0;
+            }
+        }
+        
+        /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+        @media (max-width: 400px) {
+            .topnav a {
+                float: none;
+                width: 100%;
+            }
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .ng-valid[required], .ng-valid.required  {
+        border-left: 5px solid #42A948; /* green */
+        }
+
+        .ng-invalid:not(form)  {
+        border-left: 5px solid #a94442; /* red */
+        }
+
+        .fa {
+        margin-left: 5%;
+        padding: 20px;
+        font-size: 20px;
+        width: 90%;
+        text-align: center;
+        text-decoration: none;
+        }
+
+        .fa:hover {
+            opacity: 0.7;
+        }
+
+        .fa-facebook {
+        background: #3B5998;
+        color: white;
+        }
+
+        h3 {
+            font-size: 30px;
+        }
+
+
+</style>
+
+<div style="display: inline-block" class="row">
+        <div  class="leftcolumn">
+          <div class="card">
+            <h2 class="titulo">Convocatoria</h2>
+            <hr>
+                <img src="https://i.imgur.com/DAxIIwh.jpg" name="img_convocatoria">
+          </div>
+         
+      
+        </div>
+        <div class="rightcolumn">
+          <div class="card">
+            <h3>Contacto</h3>
+            <hr>
+            
+            <p> Si tienes alguna duda consultanos en la página de facebook</p>
+            <a href="https://www.facebook.com/Rustlers-RALLY-matemático-PREPA-4-186403985470034/" class="fa fa-facebook"></a>
+          </div>
+          <div class="card">
+                Quedan
+                <countdown-timer [end]="'2018-03-14 9:30:00'"></countdown-timer>
+                para registrarse.
+          </div>
+        </div>
+      
+</div>
+
+
+      
+    

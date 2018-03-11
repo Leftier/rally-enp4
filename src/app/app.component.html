@@ -1,0 +1,163 @@
+<!-- main app container -->
+<style>
+    * {
+        box-sizing: border-box;
+        
+    }
+    
+    body {
+        font-family: Arial;
+        padding: 10px;
+        background: #f1f1f1;
+    }
+    
+    /* Header/Blog Title */
+    .header {
+        padding: 30px;
+        text-align: center;
+        background: #003D79;
+        color: white;
+        
+    }
+    
+    .header h1 {
+        font-size: 50px;
+    }
+    
+    
+    /* Style the top navigation bar */
+    .topnav {
+        overflow: hidden;
+        background-color: #333;
+    }
+    
+    /* Style the topnav links */
+    .topnav a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    
+    /* Change color on hover */
+    .topnav a:hover {
+        background-color: #f1f1f1;
+        color: black;
+    }
+    
+    /* Create two unequal columns that floats next to each other */
+    /* Left column */
+    .leftcolumn {   
+        float: left;
+        width: 75%;
+    }
+    
+    /* Right column */
+    .rightcolumn {
+        float: left;
+        width: 25%;
+        background-color: #f1f1f1;
+        padding-left: 20px;
+    }
+    
+    /* Fake image */
+    .fakeimg {
+        background-color: #aaa;
+        width: 100%;
+        padding: 20px;
+    }
+    
+    /* Add a card effect for articles */
+    .card {
+        background-color: white;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    .test {
+        background-color: #f1f1f1;
+    }
+    
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 20px;
+        
+        bottom: 0;
+        text-align: center;
+        background: #ddd;
+        margin-top: 20px;
+    }
+    
+    /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+    @media (max-width: 800px) {
+        .leftcolumn, .rightcolumn {   
+            width: 100%;
+            padding: 0;
+        }
+    }
+    
+    /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+    @media (max-width: 400px) {
+        .topnav a {
+            float: none;
+            width: 100%;
+        }
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    </style>
+
+<head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+<div class="test">
+<div class="header">
+        <h1>Rustlers (Cuatreros)</h1>
+        <p>Rally de Matemáticas de la Comunidad Estudiantel de Prepa 4.</p>
+      </div>
+      
+      <div class="topnav">
+        <a [routerLink]="['/inicio']" >Inicio</a>
+        <a *ngIf="isLogin;else logeado2" [routerLink]="['/admin']">Lista Participantes</a>
+        <ng-template #logeado2>
+                <a [routerLink]="['/registro']">Participar</a>
+        </ng-template>
+        
+        <a *ngIf="isLogin;else logeado" (click)="onClickLogout()" [routerLink]="['/inicio']" style="float:right">Cerrar Sesión</a>
+        <ng-template #logeado>
+                <a  [routerLink]="['/login']" style="float:right">Administradores</a>
+        </ng-template>
+        
+      </div>
+ 
+            <div class="container">
+                    <flash-messages></flash-messages>
+                    <router-outlet></router-outlet>
+
+            </div>
+    
+    
+    <!-- credits -->
+    <div class="footer">
+            <p>
+              Página de registro para el rally de matematicas del grupo 603. (2018)
+          </p>
+          <p>
+              Creada por <a href="https://twitter.com/shaileger" target="_top">Shai Lèger</a>.
+          </p>
+      </div>
+
+
+    </div>
